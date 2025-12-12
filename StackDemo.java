@@ -1,4 +1,4 @@
-package DSA;
+package dsa;
 
 class Stack
 {
@@ -39,6 +39,51 @@ class Stack
             return StackArray[top--];
         }
     }
+
+    //return top element
+    public void top()
+    {
+        if(top == -1)
+        {
+            System.out.println("Stack underflow. Stack is Empty.");
+        }
+        else
+        {
+            System.out.println("Last(top) element of stack: " +StackArray[top] );
+        }
+    }
+
+    public void display()
+    {
+        if(top == -1)
+        {
+            System.out.println("Stack underflow. Stack is Empty.");
+        }
+        else
+        {
+            System.out.println("Stack Elements: ");
+            for(int i=0; i<=top; i++)
+            {
+                System.out.print(StackArray[i] +"\t" );
+            }
+            System.out.println();
+        }
+    }
+
+    public boolean isFull()
+    {
+        return top == maxSize - 1;
+    }
+
+    public boolean isEmpty()
+    {
+        return top == -1;
+    }
+
+    public int size()
+    {
+        return top + 1;
+    }
 }
 
 class StackDemo
@@ -51,10 +96,23 @@ class StackDemo
         s1.push(75);
         s1.push(4);
         s1.push(145);
-        s1.push(23);
+        s1.push(23); // Stack overflow
+        s1.display();
+        s1.top();
+
+        System.out.println("Current Stack Size: " + s1.size());
+        System.out.println("Is Stack Full? " + s1.isFull());
+        System.out.println("Is Stack Empty? " + s1.isEmpty() +"\n");
 
         s1.pop();
         s1.pop();
         s1.pop();
+        s1.display();
+        s1.top();
+
+        System.out.println("Current Stack Size: " + s1.size());
+        System.out.println("Is Stack Full? " + s1.isFull());
+        System.out.println("Is Stack Empty? " + s1.isEmpty());
+
     }
 }
